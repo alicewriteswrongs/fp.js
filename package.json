@@ -1,0 +1,11 @@
+{
+  "name": "fp.js",
+  "version": "1.0.0",
+  "description": "A tiny functional programming library",
+  "main": "fp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alice Pote",
+  "license": "ISC"
+}
