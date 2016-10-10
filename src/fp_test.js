@@ -13,14 +13,14 @@ describe("alice's little functional programming library", () => {
     let exampleFunc = curry((x, y, z) => x + y + z)
 
     it('should let you bind partial arguments', () => {
-      let bound = exampleFunc(1,2)
+      let bound = exampleFunc(1, 2)
       assert.isFunction(bound)
-    });
+    })
 
     it('should apply all bound arguments', () => {
-      let bound = exampleFunc(1,2)
+      let bound = exampleFunc(1, 2)
       assert.equal(bound(3), 6)
-    });
+    })
   })
 
   describe('compose', () => {
