@@ -3,8 +3,8 @@ import {
   curry,
   compose,
   cons,
-  flatten,
-} from './fp';
+  flatten
+} from './fp'
 
 describe("alice's little functional programming library", () => {
   describe('curry', () => {
@@ -15,27 +15,25 @@ describe("alice's little functional programming library", () => {
     it('should chain functions together', () => {
       let combined = compose(timesTwo, plusTwo)
 
-      assert.equal(combined(2), 8);
-    });
-  });
+      assert.equal(combined(2), 8)
+    })
+  })
 
   describe('compose', () => {
-  });
+  })
 
   describe('cons', () => {
     it('should build arrays from an element and an array', () => {
       cons('a', ['b', 'c'])
-    });
-  });
-
+    })
+  })
 
   describe('flatten', () => {
     it('should flatten', () => {
       let bumpy = [ [ 'a', 'b' ], ['c', 'd'] ]
       flatten(bumpy)
 
-      console.log(flatten(bumpy));
-    });
-  });
-  
-});
+      console.log(flatten(bumpy))
+    })
+  })
+})
