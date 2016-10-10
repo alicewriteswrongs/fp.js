@@ -1,4 +1,6 @@
 import { assert } from 'chai'
+import sinon from 'sinon'
+
 import {
   curry,
   compose,
@@ -8,32 +10,44 @@ import {
 
 describe("alice's little functional programming library", () => {
   describe('curry', () => {
-    const timesTwo = x => x * 2
-    const plusTwo = x => x + 2
-    const plusFour = x => x + 4
+    let exampleFunc = curry((x, y, z) => x + y + z)
 
-    it('should chain functions together', () => {
-      let combined = compose(timesTwo, plusTwo)
+    it('should let you bind partial arguments', () => {
+      let bound = exampleFunc(1,2)
+      assert.isFunction(bound)
+    });
 
-      assert.equal(combined(2), 8)
-    })
+    it('should apply all bound arguments', () => {
+      let bound = exampleFunc(1,2)
+      assert.equal(bound(3), 6)
+    });
   })
 
   describe('compose', () => {
+    const timesTwo = sinon.spy(x => x * 2)
+    const plusTwo = sinon.spy(x => x + 2)
+    const combined = compose(timesTwo, plusTwo)
+
+    it('should chain functions together', () => {
+      assert.equal(combined(2), 8)
+      assert.ok(plusTwo.calledWith(2), 'should get the argument first')
+      assert.ok(timesTwo.calledWith(4), 'should get the argument second')
+    })
   })
 
   describe('cons', () => {
     it('should build arrays from an element and an array', () => {
-      cons('a', ['b', 'c'])
+      let result = cons('a', ['b', 'c'])
+      assert.deepEqual(result, ['a', 'b', 'c'])
     })
   })
 
   describe('flatten', () => {
     it('should flatten', () => {
       let bumpy = [ [ 'a', 'b' ], ['c', 'd'] ]
-      flatten(bumpy)
-
-      console.log(flatten(bumpy))
+      let result = flatten(bumpy)
+      let expectation = ['a', 'b', 'c', 'd']
+      assert.deepEqual(result, expectation)
     })
   })
 })

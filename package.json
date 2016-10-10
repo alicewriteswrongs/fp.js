@@ -17,6 +17,7 @@
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "mocha": "^3.1.0",
+    "sinon": "^1.17.6",
     "standard": "^8.3.0",
     "webpack": "^1.13.2"
   },
@@ -27,6 +28,12 @@
     "plugins": [
       "transform-object-assign",
       "transform-object-rest-spread"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
     ]
   }
 }
