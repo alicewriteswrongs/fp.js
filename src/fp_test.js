@@ -1,8 +1,7 @@
-var fp = require("./fp")
-const {
+import {
   cons,
-  flatten
-} = fp;
+  flatten,
+} from './fp';
 
 describe("alice's little functional programming library", () => {
   describe('cons', () => {

@@ -1,5 +1,5 @@
 // function methods
-const curry = (fn, ...init) => {
+export const curry = (fn, ...init) => {
   const nargs = fn.length
 
   const acc = (...old) => (...cur) => {
@@ -9,84 +9,57 @@ const curry = (fn, ...init) => {
   return acc(...init)
 }
 
-const compose = (...fs) => (...a) => (
+export const compose = (...fs) => (...a) => (
   len(fs) === 1 ? head(fs)(...a) : head(fs)(compose(...tail(fs))(...a))
 )
 
 // array methods
-const cons = curry((x, xs) => [x].concat(xs))
+export const cons = curry((x, xs) => [x].concat(xs))
 
-const flatten = xs => (
+export const flatten = xs => (
   len(xs) === 1 ? head(xs) : head(xs).concat(flatten(tail(xs)))
 )
 
-const map = curry((fn, xs) => xs.map(fn))
+export const map = curry((fn, xs) => xs.map(fn))
 
-const arrcpy = xs => xs.concat()
+export const arrcpy = xs => xs.concat()
 
-const filter = curry((fn, xs) => xs.filter(fn))
+export const filter = curry((fn, xs) => xs.filter(fn))
 
-const head = xs => xs[0]
+export const head = xs => xs[0]
 
-const tail = xs => xs.slice(1)
+export const tail = xs => xs.slice(1)
 
-const _rev = xs => xs.reverse()
+export const _rev = xs => xs.reverse()
 
-const reverse = compose(_rev, arrcpy)
+export const reverse = compose(_rev, arrcpy)
 
-const len = xs => xs.length
+export const len = xs => xs.length
 
-const editHead = curry((fn, xs) => cons(fn(head(xs)), tail(xs)))
+export const editHead = curry((fn, xs) => cons(fn(head(xs)), tail(xs)))
 
 // string methods
-const strcpy = s => s.concat()
+export const strcpy = s => s.concat()
 
-const toLower = s => s.toLowerCase()
+export const toLower = s => s.toLowerCase()
 
-const toUpper = s => s.toUpperCase()
+export const toUpper = s => s.toUpperCase()
 
-const _firstCap = s => s.replace(/^./, toUpper(head(s)))
+export const _firstCap = s => s.replace(/^./, toUpper(head(s)))
 
-const capitalize = compose(_firstCap, toLower, strcpy)
+export const capitalize = compose(_firstCap, toLower, strcpy)
 
-const split = curry((sep, s) => s.split(sep))
+export const split = curry((sep, s) => s.split(sep))
 
-const join = curry((char, s) => s.join(char))
+export const join = curry((char, s) => s.join(char))
 
-const words = split(' ')
+export const words = split(' ')
 
-const sentence = join(' ')
+export const sentence = join(' ')
 
-const capitalizeSentence = compose(sentence, editHead(capitalize), words)
+export const capitalizeSentence = compose(sentence, editHead(capitalize), words)
 
 // object methods
-const fromPairs = xs => (
+export const fromPairs = xs => (
   Object.assign({}, ...map(([k, v]) => ({[k]: v}), xs))
 )
-
-module.exports = {
-  curry,
-  compose,
-  cons,
-  flatten,
-  map,
-  arrcpy,
-  filter,
-  head,
-  tail,
-  _rev,
-  reverse,
-  len,
-  editHead,
-  strcpy,
-  toLower,
-  toUpper,
-  _firstCap,
-  capitalize,
-  split,
-  join,
-  words,
-  sentence,
-  capitalizeSentence,
-  fromPairs
-}

@@ -4,22 +4,22 @@
   "description": "A tiny functional programming library",
   "main": "fp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register ./src",
+    "watch": "mocha --compilers js:babel-register -w ./src"
   },
   "author": "Alice Pote",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
-    "babel-preset-stage-1": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
     "babel-register": "^6.16.3",
     "mocha": "^3.1.0",
     "webpack": "^1.13.2"
   },
   "babel": {
     "presets": [
-      "es2015",
-      "stage-1"
+      "latest"
     ],
     "plugins": [
       "transform-object-assign",
