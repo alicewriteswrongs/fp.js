@@ -4,6 +4,7 @@
   "description": "A tiny functional programming library",
   "main": "fp.js",
   "scripts": {
+    "lint": "standard",
     "test": "mocha --compilers js:babel-register ./src",
     "watch": "mocha --compilers js:babel-register -w ./src"
   },
@@ -16,6 +17,7 @@
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "mocha": "^3.1.0",
+    "standard": "^8.3.0",
     "webpack": "^1.13.2"
   },
   "babel": {
