@@ -1,4 +1,7 @@
-import { curry, compose } from './function';
+import { assert } from 'chai'
+import sinon from 'sinon'
+
+import { curry, compose } from './function'
 
 describe('function utilities', () => {
   describe('curry', () => {
@@ -26,4 +29,4 @@ describe('function utilities', () => {
       assert.ok(timesTwo.calledWith(4), 'should get the argument second')
     })
   })
-});
+})

@@ -1,3 +1,5 @@
+import { len, head, tail } from './array'
+
 export const curry = (fn, ...init) => {
   const nargs = fn.length
 

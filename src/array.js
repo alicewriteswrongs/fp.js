@@ -1,4 +1,4 @@
-import { curry, compose } from './function';
+import { curry, compose } from './function'
 
 export const cons = curry((x, xs) => [x].concat(xs))
 
@@ -24,6 +24,6 @@ export const len = xs => xs.length
 
 export const editHead = curry((fn, xs) => cons(fn(head(xs)), tail(xs)))
 
-export const includes = curry((xs, x) => xs.includes(x));
+export const includes = curry((xs, x) => xs.includes(x))
 
-export const arrdiff = curry((xs, ys) => filter(includes(ys), xs));
+export const arrdiff = curry((xs, ys) => filter(includes(ys), xs))

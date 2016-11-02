@@ -1,7 +1,9 @@
+import { assert } from 'chai'
+
 import {
   cons,
-  flatten,
-} from './array';
+  flatten
+} from './array'
 
 describe('array functions', () => {
   describe('cons', () => {
@@ -19,4 +21,4 @@ describe('array functions', () => {
       assert.deepEqual(result, expectation)
     })
   })
-});
+})

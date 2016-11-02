@@ -1,3 +1,6 @@
+import { curry, compose } from './function'
+import { editHead, head } from './array'
+
 export const strcpy = s => s.concat()
 
 export const toLower = s => s.toLowerCase()
