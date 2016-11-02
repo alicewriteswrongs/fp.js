@@ -1,12 +1,9 @@
-import { assert } from 'chai'
-import sinon from 'sinon'
-
 import {
   cons,
-  flatten
-} from './fp'
+  flatten,
+} from './array';
 
-describe("alice's little functional programming library", () => {
+describe('array functions', () => {
   describe('cons', () => {
     it('should build arrays from an element and an array', () => {
       let result = cons('a', ['b', 'c'])
@@ -22,4 +19,4 @@ describe("alice's little functional programming library", () => {
       assert.deepEqual(result, expectation)
     })
   })
-})
+});
