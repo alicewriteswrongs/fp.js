@@ -1,4 +1,4 @@
-import { curry, compose } from './function'
+import { curry, compose } from '..'
 
 export const cons = curry((x, xs) => [x].concat(xs))
 

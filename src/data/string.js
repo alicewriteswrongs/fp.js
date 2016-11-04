@@ -1,5 +1,5 @@
-import { curry, compose } from './function'
-import { editHead, head } from './array'
+import { curry, compose } from '../index'
+import { editHead, head } from './Array'
 
 export const strcpy = s => s.concat()
 

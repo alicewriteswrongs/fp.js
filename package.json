@@ -5,8 +5,8 @@
   "main": "fp.js",
   "scripts": {
     "lint": "standard",
-    "test": "mocha --compilers js:babel-register ./src",
-    "watch": "mocha --compilers js:babel-register -w ./src"
+    "test": "mocha --compilers js:babel-register ./src/**/*_test.js ./src",
+    "watch": "mocha --compilers js:babel-register -w ./src/**/*_test.js ./src"
   },
   "author": "Alice Pote",
   "license": "ISC",

@@ -1,7 +1,7 @@
 import { assert } from 'chai'
 import sinon from 'sinon'
 
-import { curry, compose } from './function'
+import { curry, compose, identity } from '.'
 
 describe('function utilities', () => {
   describe('curry', () => {
@@ -29,4 +29,12 @@ describe('function utilities', () => {
       assert.ok(timesTwo.calledWith(4), 'should get the argument second')
     })
   })
+
+  describe('identity', () => {
+    it('should, well, be an identity function', () => {
+      ['a', 1, 'hello', 12341234].forEach(x => {
+        assert.equal(x, identity(x))
+      })
+    });
+  });
 })

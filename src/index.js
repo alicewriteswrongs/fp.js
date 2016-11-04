@@ -1,5 +1,3 @@
-import { len, head, tail } from './array'
-
 export const curry = (fn, ...init) => {
   const nargs = fn.length
 
@@ -10,6 +8,16 @@ export const curry = (fn, ...init) => {
   return acc(...init)
 }
 
-export const compose = (...fs) => (...a) => (
-  len(fs) === 1 ? head(fs)(...a) : head(fs)(compose(...tail(fs))(...a))
-)
+export const compose = (...fs) => (...a) => {
+  if ( fs.length === 1 ) {
+    return fs[0](...a);
+  } else {
+    return fs[0](compose(...fs.slice(1))(...a))
+  }
+}
+
+export const identity = x => x
+
+export const isNil = x => (
+  x === undefined || x === null
+);

@@ -1,8 +1,10 @@
 import { assert } from 'chai'
 
+import { identity } from '..'
 import {
   cons,
-  flatten
+  flatten,
+  map
 } from './array'
 
 describe('array functions', () => {
@@ -19,6 +21,19 @@ describe('array functions', () => {
       let result = flatten(bumpy)
       let expectation = ['a', 'b', 'c', 'd']
       assert.deepEqual(result, expectation)
+    })
+  })
+
+  describe('map', () => {
+    it('should be a curried function', () => {
+      assert.isFunction(map(identity))
+    })
+
+    it('should take an array, and return the function mappped across the array', () => {
+    })
+
+    it('should behave sanely with an empty array', () => {
+      assert.lengthOf(map(identity)([]), 0)
     })
   })
 })
