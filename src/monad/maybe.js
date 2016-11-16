@@ -6,7 +6,8 @@ function Nothing () {
   return {
     isNothing:  true,
     isJust:     false,
-    map:        () => Nothing()
+    map:        () => Nothing(),
+    toString:   () => `Nothing`
   }
 }
 
@@ -15,7 +16,8 @@ function Just(val) {
     value:      val,
     isNothing:  false,
     isJust:     true,
-    map:        fn => Maybe(fn(val))
+    map:        fn => Maybe(fn(val)),
+    toString:   () => `Just(${val})`
   }
 }
 
