@@ -1,4 +1,4 @@
-#fp.js
+# fp.js
 
 This is a tiny functional programming library I wrote mostly on a plane.
 
