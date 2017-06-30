@@ -1,14 +1,9 @@
 import { assert } from 'chai'
 import sinon from 'sinon'
 
-import {
-  curry,
-  compose,
-  cons,
-  flatten
-} from './fp'
+import { curry, compose, identity } from '.'
 
-describe("alice's little functional programming library", () => {
+describe('function utilities', () => {
   describe('curry', () => {
     let exampleFunc = curry((x, y, z) => x + y + z)
 
@@ -35,19 +30,11 @@ describe("alice's little functional programming library", () => {
     })
   })
 
-  describe('cons', () => {
-    it('should build arrays from an element and an array', () => {
-      let result = cons('a', ['b', 'c'])
-      assert.deepEqual(result, ['a', 'b', 'c'])
-    })
-  })
-
-  describe('flatten', () => {
-    it('should flatten', () => {
-      let bumpy = [ [ 'a', 'b' ], ['c', 'd'] ]
-      let result = flatten(bumpy)
-      let expectation = ['a', 'b', 'c', 'd']
-      assert.deepEqual(result, expectation)
-    })
-  })
+  describe('identity', () => {
+    it('should, well, be an identity function', () => {
+      ['a', 1, 'hello', 12341234].forEach(x => {
+        assert.equal(x, identity(x))
+      })
+    });
+  });
 })
